@@ -1,0 +1,28 @@
+type Query{
+    allCustomers:[Customer],
+    customerById(id:Int): Customer,
+    customerByEmail(email:String): Customer,
+    ordersByCustomer(id : Int) : Order
+}
+type Mutation{
+    updateCustomer(id:Int,customer:CustomerRequest) : Customer,
+    deleteCustomer(id:Int) : String,
+    saveCustomer(c:CustomerRequest) : Customer
+}
+type Customer {
+    id : Int,
+    name : String,
+    email : String
+}
+type Order{
+    id : Int,
+    name : String,
+   customer : Customer
+}
+
+
+input CustomerRequest{
+    name: String,
+    email: String,
+
+}
